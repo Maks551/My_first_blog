@@ -2,7 +2,6 @@ let messages;
 const prefix = '/rest/profile/message/';
 
 $(document).ready(function() {
-    // console.log(document.getElementById('messages_div'));
     $.ajax({
         type:'GET',
         contentType: 'application/json;charset=utf-8',
@@ -25,25 +24,21 @@ $(document).ready(function() {
     });
 });
 
-
 function setMessage(messages) {
     for (let i = 0; i < messages.length; i++) {
-        // let element = document.getElementById('messages').firstElementChild;
-        let element = document.getElementById('messages');
-        if (i === 0) {
-            setMessageBody(element.firstElementChild, messages[i]);
-        } else {
-            let cln = element.cloneNode(true);
-            setMessageBody(cln.firstElementChild, messages[i]);
-            $('#messages_div').append(cln);
-        }
+        let element = document.getElementById('message_pattern');
+        let cln = element.cloneNode(true);
+        setMessageBody(cln, messages[i]);
+        $('#messages_div').append(cln);
+        $(cln).show();
     }
 }
 // element.insertAdjacentHTML(position, cln);
-function setMessageBody(position, message) {
+function setMessageBody(messageHTML, message) {
     let mm = [message.id, message.topic, message.dateTime.slice(0,10), message.message];
-    $(position).attr('id', message.id);
-    let children = position.children;
+    let message_row = messageHTML.firstElementChild;
+    $(message_row).attr('id', message.id);
+    let children = message_row.children;
     let count = 0;
     for (let i = 0; i < children.length; i++) { // - 1 = - buttons (edit, delete)
         let child = children[i];
@@ -70,12 +65,6 @@ function editMessage(id) {
         async: true,
         success: function() {
             console.log("PUT");
-            // noinspection JSAnnotator
-            // $('#inputLogin').val() = result.login;
-            // result.login = $('#inputLogin').val();
-            // result.firstName = $('#inputFirstName').val();
-            // result.lastName = $('#inputLastName').val();
-            // console.log(JSONObject);
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log('error post');
@@ -86,7 +75,6 @@ function editMessage(id) {
         }
     });
 }
-
 function deleteMessage(id) {
     $.ajax({
         method: 'DELETE',

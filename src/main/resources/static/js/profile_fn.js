@@ -148,7 +148,7 @@ function setInputValuesByProfile() {
     $("#inputLogin").val(person.login);
     $("#inputFirstName").val(person.firstName);
     $("#inputLastName").val(person.lastName);
-    $("#inputRegister").val(date.slice(0,10));
+    $("#inputRegister").val(date);
 
     // $("#inputRegister").val("<fmt:formatDate value='person.registered' pattern='dd-MMMM-yyyy'/>");
     // setValueById('inputLogin', person.login);

@@ -24,9 +24,9 @@
             </div>
         </div>
         <br>
-        <div id="messages_div" style="display: none">
-            <div class="alert alert-light" role="alert" id="messages">
-                <div class="row" id="row_1">
+        <div id="messages_div">
+            <div class="alert alert-light" role="alert" id="message_pattern" style="display: none">
+                <div class="row">
                     <div class="col-2" id="row_message">
                         <div id="div_id" style="display: none;"></div>
                         <div id="div_topic" class="text-primary"></div>
