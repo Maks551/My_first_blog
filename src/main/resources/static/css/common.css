@@ -50,7 +50,7 @@ body {
     color: red
 }
 
-.messages {
+.messages-container {
     min-width: 576px;
     padding: 2rem 1rem;
     background-color: #cdf5ff;

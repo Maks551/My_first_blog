@@ -6,7 +6,7 @@
 <jsp:include page="fragments/header.jsp"/>
 <script type="text/javascript" src="static/js/messages_fn.js" defer></script>
 
-<div class="messages pt-4">
+<div class="messages-container pt-4">
     <div class="container">
         <div class="row">
             <div class="col align-self-start">
@@ -24,7 +24,7 @@
             </div>
         </div>
         <br>
-        <div id="messages_div">
+        <div id="messages_div" style="display: none">
             <div class="alert alert-light" role="alert" id="messages">
                 <div class="row" id="row_1">
                     <div class="col-2" id="row_message">
